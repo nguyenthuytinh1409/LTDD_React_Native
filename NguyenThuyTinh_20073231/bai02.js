@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 console.log('Data 1')
 let heightMark = 1.69
 let weightMark = 78
@@ -38,6 +39,8 @@ if (BMIMark > BMIJohn) {
   )
 }
 =======
+=======
+>>>>>>> d327c4dc8cd6c5fdab54a62e0d3216c97c66755f
 console.log('data 1');
 var massMarks = 78;
 var massJohn = 92;
@@ -68,5 +71,9 @@ var bmiMark1 = massMarks1 / heightMarks1 ** 2;
 var bmiJohn1 = massJohn1 / heightJohn1 ** 2;
 console.log('BMI Mark: ', bmiMark1.toFixed(2));
 console.log('BMI John: ', bmiJohn1.toFixed(2));
+<<<<<<< HEAD
+console.log(markHigherBMI(bmiMark1, bmiJohn1));
+>>>>>>> d327c4dc8cd6c5fdab54a62e0d3216c97c66755f
+=======
 console.log(markHigherBMI(bmiMark1, bmiJohn1));
 >>>>>>> d327c4dc8cd6c5fdab54a62e0d3216c97c66755f
