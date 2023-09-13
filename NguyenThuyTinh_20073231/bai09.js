@@ -9,3 +9,4 @@ const printForecast = function (arr) {
 }
 console.log(printForecast(a))
 console.log(printForecast(b))
+console.log(printForecast([12, 5, -5, 0, 4]))
