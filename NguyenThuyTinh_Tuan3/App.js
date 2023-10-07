@@ -13,8 +13,8 @@ export default function App() {
       {/* <Screen1_a /> */}
       {/* <Screen1_b /> */}
       {/* <Screen1_c /> */}
-      {/* <Screen1_d /> */}
-      <Screen1_e />
+      <Screen1_d />
+      {/* <Screen1_e /> */}
     </View>
   )
 }
