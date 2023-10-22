@@ -12,30 +12,58 @@ import React from 'react'
 import { useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 import { data } from '../screens/data'
-const Screen_02 = () => {
+const Screen_02 = ({ navigation }) => {
+  const [All, setAll] = useState(data)
+  const [Roadbike, setRoadbike] = useState(data)
+  const [Mountain, setMountain] = useState(data)
+  const handlerSetRoadbike = () => {
+    setRoadbike(data.filter((item) => item.name === 'Pinarello'))
+  }
+  const handlerMountain = () => {
+    setRoadbike(data.filter((item) => item.name === 'Pina Mountai'))
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.text1}>The world’s Best Bike</Text>
       </View>
+
       <View style={styles.button}>
-        <Pressable style={styles.button1}>
+        <Pressable
+          style={styles.button1}
+          onPress={() => {
+            setRoadbike(data)
+          }}
+        >
           <Text style={styles.text2}>All</Text>
         </Pressable>
-        <Pressable style={styles.button2}>
+
+        <Pressable style={styles.button2} onPress={handlerSetRoadbike}>
           <Text style={styles.text2}>RoadBike</Text>
         </Pressable>
-        <Pressable style={styles.button3}>
+
+        <Pressable style={styles.button3} onPress={handlerMountain}>
           <Text style={styles.text2}>Mountain</Text>
         </Pressable>
       </View>
       <ScrollView style={styles.viewItem}>
         <FlatList
           numColumns={2}
-          data={data}
+          data={Roadbike}
           renderItem={({ item }) => {
             return (
-              <View style={styles.item}>
+              // chon xe va chuyen sang trang chinh cua xe chon
+              <Pressable
+                onPress={() =>
+                  navigation.navigate('Screen_03', {
+                    image: item.image,
+                    name: item.name,
+                    price: item.price
+                  })
+                }
+                style={styles.boxItem}
+              >
                 <Image style={styles.image} source={item.image} />
                 <Text style={styles.text3}>{item.name}</Text>
                 <Text style={styles.text4}>{item.price}</Text>
@@ -45,7 +73,7 @@ const Screen_02 = () => {
                   size={24}
                   color="black"
                 />
-              </View>
+              </Pressable>
             )
           }}
         />
@@ -54,6 +82,15 @@ const Screen_02 = () => {
   )
 }
 const styles = StyleSheet.create({
+  boxItem: {
+    width: '45%',
+    height: 200,
+    backgroundColor: '#00000040',
+    borderRadius: 10,
+    margin: 10,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   viewItem: {
     width: '100%',
     height: '100%',
@@ -102,7 +139,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '5%',
     backgroundColor: '#fff',
-    marginTop: 10
+    marginTop: 0
   },
   text1: {
     fontSize: 26,
@@ -117,7 +154,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '5%',
     backgroundColor: '#fff',
-    marginTop: 10,
+    marginTop: 30,
     flexDirection: 'row',
     justifyContent: 'space-around'
   },

@@ -11,15 +11,18 @@ import {
 import React from 'react'
 import { useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
-const Screen_03 = () => {
+import img from '../assets/1.png'
+const Screen_03 = ({ navigation, route }) => {
+  const image = route.params?.image || img
+  const name = route.params?.name || 'Pinarello'
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Image style={styles.image} source={require('../assets/1.png')} />
+        <Image style={styles.image} source={image} />
       </View>
-      <Text style={styles.text1}>Pina Mountain</Text>
+      <Text style={styles.text1}>{name}</Text>
       <View style={styles.price}>
-        <Text style={styles.text2}>15% OFF | 350$</Text>
+        <Text style={styles.text2}>15% OFF I 350$</Text>
         <Text style={styles.text3}>499$</Text>
       </View>
       <Text style={styles.text4}>Description</Text>

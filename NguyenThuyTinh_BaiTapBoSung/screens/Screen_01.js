@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import React from 'react'
 import { useState } from 'react'
-const Screen_01 = () => {
+const Screen_01 = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -23,7 +23,10 @@ const Screen_01 = () => {
       <Text style={styles.text2}>
         POWER BIKE <br></br> SHOP
       </Text>
-      <Pressable style={styles.button}>
+      <Pressable
+        style={styles.button}
+        onPress={() => navigation.navigate('Screen_02')}
+      >
         <Text style={styles.text3}>Get Started</Text>
       </Pressable>
     </View>
@@ -72,14 +75,16 @@ const styles = StyleSheet.create({
   text3: {
     fontSize: 26,
     width: '100%',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginTop: 5
   },
   button: {
     width: '90%',
     height: 50,
     backgroundColor: '#E94141',
     borderRadius: 30,
-    marginTop: 40,
+    marginTop: 30,
     marginLeft: 20
   }
 })
